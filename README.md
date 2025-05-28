@@ -1,34 +1,54 @@
-# Personal Dashboard 
+# React + TypeScript + Vite
 
-The goal is to create a cute personal dashboard with a mind dump feature and extras that makes the space interesting to use. This was inspired by the codeacademy project called ["Inspirational Homepage](https://www.codecademy.com/projects/portfolio/inspirational-homepage)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+Currently, two official plugins are available:
 
-### Project Requirements
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- Build the application using React with Typescript 
-- Start the project with Vite 
-- Version control your application with Git and host the repository on GitHub
-- Write a README (using Markdown) that documents your project
-- You can use any library you like
-- Deploy application (suggestion: Netlify )
+## Expanding the ESLint configuration
 
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### Features (v1)
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-- Users can write down what's in their mind as a note (mind dump)
-- Users can delete notes already posted 
-- Users can click on a button or press backspace to post the note 
-- Users receive a alert message when they try to post an empty note 
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Extra 
-- Users can check the current weather in their location
-- Users are shown an inspirational quote of the day
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### Features (v2)
-- Coming soon...
-
-
-### Visual 
-- You can be creative with the UI of your project, but I would recommend to not use style libraries for now 
-- You can draw your goal UI in paper, at Figma or any other tool 
-- Inspiration ideas: [LINK 1 ](https://site.xtiles.app/wp-content/uploads/2024/04/brain_dump.webp) | [LINK 2](https://goofy-hopper-a9bd1f.netlify.app/) | [LINK 3](https://dribbble.com/shots/3603745-Notes-app-page) | [LINK 4](https://dribbble.com/shots/24368885-My-take-on-Notes-app)
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
