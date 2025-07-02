@@ -20,12 +20,15 @@ The goal is to create a cute personal dashboard with a mind dump feature and ext
 - Users can click on a button or press backspace to post the note 
 - Users receive a alert message when they try to post an empty note 
 
-Extra 
-- Users can check the current weather in their location
-- Users are shown an inspirational quote of the day
-
 ### Features (v2)
-- Coming soon...
+- Users can check the current weather in their location
+    - Use an weather app API to fetch the weather, based on the users location 
+    - Suggestions: https://open-meteo.com/ // https://www.weatherapi.com/ // https://openweathermap.org/api
+
+EXTRA: Create some kind of interaction with the post its -> could be like, adding the current weather to each post it, together with the current day 
+
+- Users can see a motivational quote every day 
+    - Suggestions: https://api-ninjas.com/api/quotes // https://github.com/lukePeavey/quotable // https://zenquotes.io/
 
 
 ### Visual 
