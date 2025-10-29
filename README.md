@@ -37,7 +37,7 @@ EXTRA: Create some kind of interaction with the post its -> could be like, addin
 
 -- 
 
- ### Features (v2) 
+ ### Features (v3) - NEW
  - Implement a mock authentication, managing everything using localStorage 
  - Create a Sign Up Page -> suggestion: use react-hook-form and Zod for Input Validation 
  - Save user, password and email at localStorage - use all the possible functions for that
